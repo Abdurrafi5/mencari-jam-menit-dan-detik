@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel="stylesheet" href="style.css">
+    <title>Percobaan</title>
+    </head>
+    <body>
+        <h1>INI ADALAH TUGAS TENTANG MENCARI JAM, MENIT, DAN DETIK [ Challange ]</h1>
+        <h3>BY ABDURRAFI FIRLAN PUTRA</h3>
+        <label for ='detik'>Masukkan Detik:<br></label>
+        <input type='number' id='detik'><br></input>
+        <br>
+        <button onclick='hitungTotalDetik()'>Hitung Jam, Menit, dan Detik</button>
+        <script>
+            function hitungTotalDetik() {
+                let detik = document.getElementById('detik').value;
+                    if (detik < 0 | detik === ''){
+                        if ( detik < 0){
+                        document.getElementById('hasil').innerHTML = '<p style="color: #ff8080;">⚠️detik tidak negatif</p>';
+                        } else {
+                            document.getElementById('hasil').innerHTML = '<p style="color: #ff8080;">⚠️Harap isi semua field yang diperlukan.</p>';
+                        }
+                        return;
+                    }
+                detik = parseInth(detik);
+
+                let jam = Math.floor(detik / 3600);
+                let sisaDetikSetelahJam = detik % 3600;
+                let menit = Math.floor(sisaDetikSetelahJam / 60);
+                let sisaDetik = sisaDetikSetelahJam % 60;
+
+                document.getElementById('hasil').innerHTML = 'Jam: ' + jam + '<br>Menit: ' + menit + '<br>Detik: ' + sisaDetik;
+            }
+       </script>
+        <div id='hasil'></div>
+    </body>
+</html>
